@@ -29,7 +29,7 @@ const script = localFont({
 })
 
 /** Canonical base URL for the Ventura domain (set in env for production). */
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://plumbingstarsventura.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://theplumbingstarsventura.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
