@@ -1,0 +1,10 @@
+.next/
+node_modules/
+.env.local
+*.db
+data/
+.DS_Store
+Thumbs.db
+
+.vercel
+next-env.d.ts
