@@ -3,6 +3,7 @@ import { SITE } from '@/lib/site'
 import Header from '@/components/Header'
 import BookingForm from '@/components/BookingForm'
 import ScrollEffects from '@/components/ScrollEffects'
+import ServiceAreaMap from '@/components/ServiceAreaMap'
 
 const SERVICES = [
   { num: 'I.', title: 'Drain Cleaning', body: 'Kitchens, bathrooms, laundry rooms, and main lines — diagnosed by camera, cleared at a flat rate, and guaranteed for thirty days.' },
@@ -188,6 +189,20 @@ export default function Home() {
                 <div><h4>{m.title}</h4><p>{m.body}</p></div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service area map */}
+      <section className="section cream" id="area" data-spy>
+        <div className="container">
+          <div className="section-head reveal">
+            <div className="eyebrow">The Territory</div>
+            <h2>All of <em>Ventura County</em>.</h2>
+            <p>From the coast to the valleys — Ventura, Oxnard, Thousand Oaks, Camarillo, Simi Valley and everywhere between.</p>
+          </div>
+          <div className="reveal d1">
+            <ServiceAreaMap />
           </div>
         </div>
       </section>
