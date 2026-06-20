@@ -8,7 +8,7 @@ const SERVICES = [
   'Sewer line',
   'Hydro jetting',
   'Camera inspection',
-  'Water heater',
+  'Water heater replacement',
   'Trenchless replacement',
   'Something else',
 ]

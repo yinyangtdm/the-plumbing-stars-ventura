@@ -11,7 +11,7 @@ const SERVICES = [
   { num: 'III.', title: 'Hydro Jetting', body: 'The pressurised, no-chemical method that scours roots, grease, and scale until pipes look factory-new.' },
   { num: 'IV.', title: 'Camera Inspection', body: 'HD video down the line so you understand the problem before you understand the bill. Footage stays with you.' },
   { num: 'V.', title: 'Trenchless Replacement', body: "No-dig pipe bursting and lining — for the homeowner who'd rather not lose a driveway, lawn, or weekend." },
-  { num: 'VI.', title: 'Water Heater Service', body: 'Tank, tankless, install, flush, repair. Most calls completed the same afternoon they begin.' },
+  { num: 'VI.', title: 'Water Heater Replacement', body: 'Tank & tankless replacement — install, haul-away, same-afternoon turnaround.' },
 ]
 
 const METHOD = [
