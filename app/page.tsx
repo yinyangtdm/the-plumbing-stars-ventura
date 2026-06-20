@@ -56,7 +56,7 @@ export default function Home() {
               </div>
               <div className="hero-meta">
                 <div><div className="l">In Business</div><div className="n">XXVI<em>yrs</em></div></div>
-                <div><div className="l">Reviews</div><div className="n">{SITE.rating}<em>/5</em></div></div>
+                <div><div className="l">Warranty</div><div className="n">5<em>yrs</em></div></div>
                 <div><div className="l">Avg. Arrival</div><div className="n">60<em>min</em></div></div>
                 <div><div className="l">Trip Charges</div><div className="n">$0</div></div>
               </div>
@@ -82,10 +82,6 @@ export default function Home() {
                   <text x="200" y="450" textAnchor="middle" fontFamily="DM Serif Display, serif" fontStyle="italic" fontSize="14" fill="rgba(244,239,228,.5)" letterSpacing="6">— Vol. XXVI —</text>
                 </svg>
                 <div className="hero-mark">Est<em>1998</em>family</div>
-                <div className="hero-pull">
-                  &ldquo;Done before the dinner was off the stove.&rdquo;
-                  <small>— M. Riley, Ventura</small>
-                </div>
               </div>
             </div>
           </div>
@@ -110,7 +106,7 @@ export default function Home() {
             </div>
             <div className="info-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.5-6.3 4.5 2.3-7.2-6-4.4h7.6z" /></svg>
-              <div><div className="l">Rating</div><div className="v">{SITE.rating} / {SITE.reviewCount} reviews</div></div>
+              <div><div className="l">Reviews</div><div className="v"><a href={SITE.yelpReviewsUrl} target="_blank" rel="noopener noreferrer">Read on Yelp →</a></div></div>
             </div>
           </div>
         </div>
@@ -207,7 +203,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reviews — real Google reviews, no fabricated quotes */}
+      {/* Reviews — links to real Yelp reviews, no fabricated ratings or quotes */}
       <section className="section" id="reviews" data-spy>
         <div className="container">
           <div className="section-head reveal">
@@ -215,11 +211,9 @@ export default function Home() {
             <h2>What the <em>neighbors</em> are saying.</h2>
           </div>
           <div className="reviews-cta reveal d1">
-            <div className="stars">★★★★★</div>
-            <div className="rating-line">{SITE.rating} out of 5 across {SITE.reviewCount} reviews</div>
-            <p>We&rsquo;d rather you hear it from the neighbors than from us. Read the verified reviews on Google — every one written by a real Ventura County customer.</p>
-            <a href={SITE.googleReviewsUrl} className="btn btn-red" target="_blank" rel="noopener noreferrer">
-              <span>Read Reviews on Google →</span>
+            <p>We&rsquo;d rather you hear it from the neighbors than from us. Read our verified reviews on Yelp — every one written by a real Ventura County customer.</p>
+            <a href={SITE.yelpReviewsUrl} className="btn btn-red" target="_blank" rel="noopener noreferrer">
+              <span>Read Reviews on Yelp →</span>
             </a>
           </div>
         </div>

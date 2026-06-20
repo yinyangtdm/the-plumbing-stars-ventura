@@ -34,17 +34,12 @@ export const SITE = {
   hours: '24 / 7 · 365 Days a Year',
 
   /** Social proof metrics (kept in one place for consistency) */
-  rating: '4.9',
-  reviewCount: '2,400+',
   yearsInBusiness: '25+',
 
   /**
-   * Link to the business's real Google reviews. The testimonials section
-   * sends visitors here instead of showing fabricated quotes.
-   *
-   * TODO(before launch): replace with the operator's real Google reviews URL.
-   * Until then this points at a Google Maps search as a safe placeholder.
+   * Link to the business's real Yelp reviews. The reviews section sends
+   * visitors here instead of showing fabricated ratings, counts, or quotes
+   * (doing so risks a Google/Yelp ban).
    */
-  googleReviewsUrl:
-    'https://www.google.com/maps/search/?api=1&query=The+Plumbing+Stars+Ventura',
+  yelpReviewsUrl: 'https://www.yelp.com/biz/the-plumbing-stars-west-hills',
 } as const
