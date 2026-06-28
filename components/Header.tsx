@@ -36,13 +36,11 @@ export default function Header() {
               </button>
               <a className="brand-left" href="#top">
                 <Image src="/logo.svg" alt="The Plumbing Stars" width={128} height={128} priority />
-                <span className="emblem-city">Ventura</span>
               </a>
             </div>
             <div className="nav-mid">
               <a className="brand" href="#top">
                 <Image src="/logo.svg" alt="The Plumbing Stars" width={110} height={110} priority />
-                <span className="emblem-city">Ventura</span>
               </a>
             </div>
             <nav className="nav-desk">

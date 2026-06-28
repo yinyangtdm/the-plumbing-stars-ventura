@@ -37,8 +37,7 @@ export default function Home() {
         <div className="container">
           <div className="issue-row">
             <div className="ornament">VOL · XXVI</div>
-            <div className="vol">A different kind of plumber.</div>
-            <div className="ornament">EST. 1998</div>
+<div className="ornament">EST. 1998</div>
           </div>
 
           <div className="hero-grid hero">
