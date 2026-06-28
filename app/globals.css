@@ -116,7 +116,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;letter-spacing:-.01e
   .nav-desk{display:flex}
   .menu-btn,.call-btn{display:none}
   .nav-cta{display:flex}
-  .brand-left{display:inline-flex}
+  .brand-left{display:inline-flex;margin-right:32px}
 }
 
 /* ===== MASTHEAD / HERO ===== */

@@ -38,7 +38,7 @@ export default function Header() {
             </div>
             <div className="nav-mid">
               <a className="brand" href="#top">
-                <Image src="/logo.svg" alt="The Plumbing Stars" width={110} height={110} priority />
+                <Image src="/logo.svg" alt="The Plumbing Stars" width={130} height={130} priority />
               </a>
             </div>
             <nav className="nav-desk">

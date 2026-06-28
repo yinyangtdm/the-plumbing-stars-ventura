@@ -36,14 +36,12 @@ export default function Home() {
       <section className="masthead">
         <div className="container">
           <div className="issue-row">
-            <div className="ornament">VOL · XXVI</div>
-<div className="ornament">EST. 1998</div>
+            <div className="ornament">Ventura County Sewer and Drain Experts</div>
           </div>
 
           <div className="hero-grid hero">
             <div>
-              <div className="hero-cred"><span className="dash" /> Ventura County&rsquo;s Sewer &amp; Drain Experts</div>
-              <h1 className="hero-title">
+<h1 className="hero-title">
                 The <em>fix</em> shouldn&rsquo;t<br />
                 feel like a <em>gamble</em>
               </h1>
