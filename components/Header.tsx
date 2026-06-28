@@ -7,7 +7,6 @@ import { SITE } from '@/lib/site'
 const NAV = [
   { href: '#services', num: '01', label: 'Services' },
   { href: '#about', num: '02', label: 'House' },
-  { href: '#reviews', num: '03', label: 'Notes' },
   { href: '#book', num: '04', label: 'Schedule' },
   { href: '#contact', num: '05', label: 'Contact' },
 ]
@@ -16,7 +15,6 @@ const DRAWER = [
   { href: '#top', num: 'i.', label: 'Home' },
   { href: '#services', num: 'ii.', label: 'Services' },
   { href: '#about', num: 'iii.', label: 'The House' },
-  { href: '#reviews', num: 'iv.', label: 'Field Notes' },
   { href: '#book', num: 'v.', label: 'Schedule' },
   { href: '#contact', num: 'vi.', label: 'Contact' },
 ]

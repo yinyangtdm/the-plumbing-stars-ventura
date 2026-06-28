@@ -1,15 +1,54 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { LA_COUNTY_GEO, VENTURA_COUNTY_GEO } from '@/lib/countyBorders'
+import { VENTURA_COUNTY_GEO } from '@/lib/countyBorders'
 
-/**
- * Ventura service-area map. Ventura County is the highlighted/primary area
- * (bold red), with Los Angeles County shaded faintly alongside to show the
- * broader Southern California reach. Framed on Ventura.
- *
- * Mirrors the LA site's map pattern: 'use client', dynamic leaflet import in
- * useEffect, manual _leaflet_id cleanup to survive StrictMode double-mount.
- */
+const CLIP_LAT = 34.34 // horizontal cut just above Moorpark (~34.285°N)
+
+function clipRing(ring: number[][], maxLat: number): number[][] {
+  const out: number[][] = []
+  const n = ring.length - 1 // GeoJSON rings repeat first point at end
+  for (let i = 0; i < n; i++) {
+    const cur = ring[i]
+    const nxt = ring[(i + 1) % n]
+    const curIn = cur[1] <= maxLat
+    const nxtIn = nxt[1] <= maxLat
+    if (curIn) out.push(cur)
+    if (curIn !== nxtIn) {
+      const t = (maxLat - cur[1]) / (nxt[1] - cur[1])
+      out.push([cur[0] + t * (nxt[0] - cur[0]), maxLat])
+    }
+  }
+  if (out.length >= 3) out.push(out[0])
+  return out
+}
+
+function clipToMaxLat(geo: unknown, maxLat: number): unknown {
+  const obj = geo as { type: string; coordinates?: unknown; geometry?: unknown; features?: unknown[] }
+  if (obj.type === 'Polygon') {
+    return {
+      ...obj,
+      coordinates: (obj.coordinates as number[][][])
+        .map(r => clipRing(r, maxLat))
+        .filter(r => r.length >= 4),
+    }
+  }
+  if (obj.type === 'MultiPolygon') {
+    return {
+      ...obj,
+      coordinates: (obj.coordinates as number[][][][])
+        .map(poly => poly.map(r => clipRing(r, maxLat)).filter(r => r.length >= 4))
+        .filter(poly => poly.length > 0),
+    }
+  }
+  if (obj.type === 'Feature') {
+    return { ...obj, geometry: clipToMaxLat(obj.geometry, maxLat) }
+  }
+  if (obj.type === 'FeatureCollection') {
+    return { ...obj, features: (obj.features ?? []).map(f => clipToMaxLat(f, maxLat)) }
+  }
+  return geo
+}
+
 export default function ServiceAreaMap() {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<ReturnType<typeof import('leaflet')['map']> | null>(null)
@@ -37,19 +76,12 @@ export default function ServiceAreaMap() {
         maxZoom: 14,
       }).addTo(map)
 
-      // LA shaded faintly (secondary)
-      L.geoJSON(LA_COUNTY_GEO as GeoJSON.GeoJsonObject, {
-        style: { color: '#0B2A55', fillColor: '#0B2A55', fillOpacity: 0.08, weight: 1 },
-      }).addTo(map).bindTooltip('Los Angeles County', { sticky: true, className: 'map-tooltip' })
-
-      // Ventura highlighted (primary, brand red)
-      const ventura = L.geoJSON(VENTURA_COUNTY_GEO as GeoJSON.GeoJsonObject, {
+      const clipped = clipToMaxLat(VENTURA_COUNTY_GEO, CLIP_LAT)
+      const ventura = L.geoJSON(clipped as GeoJSON.GeoJsonObject, {
         style: { color: '#B81F2A', fillColor: '#B81F2A', fillOpacity: 0.30, weight: 2.5 },
       }).addTo(map).bindTooltip('Ventura County', { sticky: true, className: 'map-tooltip' })
 
-      // Center/frame on Ventura, with a little room toward LA on the east.
-      const b = ventura.getBounds().pad(0.15)
-      map.fitBounds(b, { padding: [20, 20] })
+      map.fitBounds(ventura.getBounds().pad(0.15), { padding: [20, 20] })
 
       mapRef.current = map
     })
@@ -66,7 +98,6 @@ export default function ServiceAreaMap() {
       <div ref={containerRef} className="service-map" />
       <div className="map-legend">
         <span className="legend-dot legend-dot--ventura" /> Ventura County
-        <span className="legend-dot legend-dot--la" /> Los Angeles County
       </div>
     </div>
   )

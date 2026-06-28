@@ -191,34 +191,13 @@ export default function Home() {
       {/* Service area map */}
       <section className="section cream" id="area" data-spy>
         <div className="container">
-          <div className="section-head reveal">
-            <div className="eyebrow">The Territory</div>
-            <h2>All of <em>Ventura County</em>.</h2>
-            <p>From the coast to the valleys — Ventura, Oxnard, Thousand Oaks, Camarillo, Simi Valley and everywhere between.</p>
-          </div>
-          <div className="reveal d1">
+<div className="reveal d1">
             <ServiceAreaMap />
           </div>
         </div>
       </section>
 
-      {/* Reviews — links to real Yelp reviews, no fabricated ratings or quotes */}
-      <section className="section" id="reviews" data-spy>
-        <div className="container">
-          <div className="section-head reveal">
-            <div className="eyebrow">Section IV · Field Notes</div>
-            <h2>What the <em>neighbors</em> are saying.</h2>
-          </div>
-          <div className="reviews-cta reveal d1">
-            <p>We&rsquo;d rather you hear it from the neighbors than from us. Read our verified reviews on Yelp — every one written by a real Ventura County customer.</p>
-            <a href={SITE.yelpReviewsUrl} className="btn btn-red" target="_blank" rel="noopener noreferrer">
-              <span>Read Reviews on Yelp →</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Appointment */}
+{/* Appointment */}
       <section className="section cream" id="book" data-spy>
         <div className="container">
           <div className="appt">
@@ -259,8 +238,7 @@ export default function Home() {
             <div>
               <h4>The <em>House</em></h4>
               <a href="#about">About</a>
-              <a href="#reviews">Reviews</a>
-              <a href="#book">Service Area</a>
+<a href="#book">Service Area</a>
               <a href="#book">Schedule</a>
             </div>
             <div>
